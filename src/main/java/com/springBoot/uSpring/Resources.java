@@ -10,13 +10,13 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@CrossOrigin(origins = "*")
 @RestController
-public class HelloResource {
+public class Resources {
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -27,9 +27,22 @@ public class HelloResource {
     @Autowired
     private JwtUtil jwtTokenUtil;
 
-    @RequestMapping("/hello")
-    public  String hello(){
-        return "Hello World";
+    private List<User> users = usersList();
+
+    @RequestMapping(value = "/users", method = RequestMethod.GET, produces = "application/json")
+    public List<User> firstPage() {
+        return users;
+    }
+    public  List<User> usersList(){
+        User user_1  = new User();
+        user_1.setPassword("1111");
+        user_1.setUserName("1111");
+        User user_2  = new User();
+        user_2.setPassword("2222");
+        user_2.setUserName("2222");
+        users.add(user_1);
+        users.add(user_2);
+        return users;
     }
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
