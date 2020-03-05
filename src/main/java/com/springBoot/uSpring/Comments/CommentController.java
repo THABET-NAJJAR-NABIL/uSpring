@@ -1,11 +1,8 @@
 package com.springBoot.uSpring.Comments;
 
-import com.springBoot.uSpring.User;
-import org.aspectj.bridge.ICommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
@@ -46,7 +43,7 @@ public class CommentController {
     }
 
     @DeleteMapping("/deleteComment/{id}")
-    public String dateleComment(@PathVariable int id){
+    public String deleteComment(@PathVariable int id){
         return commentService.deleteComment(id) ;
     }
 

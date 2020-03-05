@@ -1,5 +1,6 @@
-package com.springBoot.uSpring;
+package com.springBoot.uSpring.User;
 
+import com.springBoot.uSpring.User.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

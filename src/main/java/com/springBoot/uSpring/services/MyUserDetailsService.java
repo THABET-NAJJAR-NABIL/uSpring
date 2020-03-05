@@ -1,17 +1,17 @@
 package com.springBoot.uSpring.services;
 
 import com.springBoot.uSpring.MyUserDetails;
-import com.springBoot.uSpring.User;
-import com.springBoot.uSpring.UserRepository;
+import com.springBoot.uSpring.User.User;
+
+import com.springBoot.uSpring.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Optional;
-
+@Service
 public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
